@@ -28,34 +28,6 @@ client.user.setGame(`Nothing`,"http://twitch.tv/S-F")
   console.log('')
 });
 
-  client.on('message', message => {
-  if (message.author.codes) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-
-  if (command == "§ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
-
-
-  message.guild.member(user).ban(7, user);
-
-message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
-
-}
-});
-  
 client.on('message', message => {
     var prefix = "§"
   if (message.author.x5bz) return;
@@ -90,19 +62,6 @@ client.on('message', message => {
   message.channel.send({
     embed : kickembed
   })
-}
-});
-
-client.on('message' , async (message) => {
-       if(message.content.startsWith(prefix + "clear")) {
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(':warning:  لا يوجد لديك صلاحية لمسح الشات');
-           let args = message.content.split(" ").slice(1);
- if (isNaN(args[0])) return message.channel.send('Please supply a valid amount of messages to purge');
-  if (args[0] > 100) return message.channel.send('Please supply a number less than 100');
-  message.channel.bulkDelete,message.channel.bulkDelete,message.channel.bulkDelete(args[0])
-    .then(messages => message.channel.send(**Successfully deleted \${messages.size}/${args[0]}` messages**`).then(message => message.delete({
-      timeout: 10000
-    }))) 
 }
 });
 
