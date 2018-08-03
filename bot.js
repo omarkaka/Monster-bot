@@ -289,6 +289,8 @@ client.on('message', message => {
              Admin Commands
 ╚[❖════════════❖]╝
 
+ ❖ !!ban = يطرد شخص من سيرفر
+
  ❖ !!kick = يحظر شخص من سيرفر
 
  ❖ !!mutechannel = يقفل روم الي تبيه لازم تكون في روم الي تبي تقفله
@@ -301,7 +303,19 @@ client.on('message', message => {
 
  ❖ !!cv = يسوي روم صوتي جديد
   
+ ❖ !!vmute = يعطي ميوت صوتي
 
+ ❖ !!vunmute = يفك ميوت صوتي
+
+ ❖ !!deafen = يخلي شخص مايسمع اي شي
+
+ ❖ !!undeafen = يخلي شخص يسمع 
+
+ ❖ !!cc = يعمل الوان
+
+ ❖ !!color = يعطي لون لازم تكتب رقم لون
+
+ ❖ !!bc = يسوي برودكاست
 ╔[❖════════════❖]╗
             General  Commands
 ╚[❖════════════❖]╝
@@ -391,4 +405,128 @@ client.on('message', message => {
     }
   }
     });
+
+client.on('message', ra3d => {
+	
+  if (ra3d.content ===  prefix + 'cc'){
+              if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**');
+              ra3d.channel.send("**✅ | يتم عمل الالوان**");
+                  setInterval(function(){})
+                    let count = 0;
+                    let ecount = 0;
+          for(let x = 1; x < 141; x++){
+            ra3d.guild.createRole({name:x,
+              color: 'RANDOM'})
+              }
+            }
+       });
+
+client.on('message', message => {
+          let args = message.content.split(' ').slice(1);
+   if(message.content.split(' ')[0] == '!!color'){
+           const embedd = new Discord.RichEmbed()
+     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+   .setDescription(`**لا يوجد لون بهذا الأسم ** :x: `)
+   .setColor(`ff0000`)
+ 
+    if(!isNaN(args) && args.length > 0)
+   
+ 
+if    (!(message.guild.roles.find("name",`${args}`))) return  message.channel.sendEmbed(embedd);
+ 
+ 
+       var a = message.guild.roles.find("name",`${args}`)
+                if(!a)return;
+const embed = new Discord.RichEmbed()
+                   
+     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+   .setDescription(`**Done , تم تغير لونك . :white_check_mark: **`)
+ 
+   .setColor(`${a.hexColor}`)
+  message.channel.sendEmbed(embed);
+          if (!args)return;
+setInterval(function(){})
+                  let count = 0;
+                  let ecount = 0;
+        for(let x = 1; x < 201; x++){
+           
+            message.member.removeRole(message.guild.roles.find("name",`${x}`))
+         
+            }
+                message.member.addRole(message.guild.roles.find("name",`${args}`));
+       
+           
+    }
+});
+
+client.on('message',async message => {
+  if(message.content.startsWith(prefix + "bc")) {
+    let filter = m => m.author.id === message.author.id;
+    let thisMessage;
+    let thisFalse;
+    message.channel.send(':regional_indicator_b::regional_indicator_c:| **ارسل الرسالة الان**').then(msg => {
+
+    let awaitM = message.channel.awaitMessages(filter, {
+      max: 1,
+      time: 20000,
+      errors: ['time']
+    })
+    .then(collected => {
+      collected.first().delete();
+      thisMessage = collected.first().content;
+      msg.edit(':regional_indicator_b::regional_indicator_c:| **هل انت متأكد؟**');
+      let awaitY = message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
+        max: 1,
+        time: 20000,
+        errors: ['time']
+      })
+      .then(collected => {
+        if(collected.first().content === 'لا') {
+          msg.delete();
+          message.delete();
+          thisFalse = false;
+        }
+        if(collected.first().content === 'نعم') {
+          if(thisFalse === false) return;
+        message.guild.members.forEach(member => {
+          msg.edit(':regional_indicator_b::regional_indicator_c:| **جاري الارسال**');
+          collected.first().delete();
+          member.send(`${thisMessage}\n\n${member} ,\nتم الارسال من : ${message.guild.name}\n تم الارسال بواسطة : ${message.author.tag}`);
+        });
+        }
+      });
+    });
+    });
+  }
+});
+
+  client.on('message', message => {
+  if (message.author.codes) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "!!ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
+
+
+  message.guild.member(user).ban(7, user);
+
+message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
+
+}
+});
+  
+ 
 client.login(process.env.BOT_TOKEN);
