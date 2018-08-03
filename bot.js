@@ -330,29 +330,5 @@ client.on('message', message => {
     }
 });
 
-const credits = JSON.parse(fs.readFileSync("./creditsCode.json", "utf8"));
-const coolDown = new Set();
-
-client.on('message',async message => {
-
-if(message.author.bot) return;
-if(!credits[message.author.id]) credits[message.author.id] = {
-    credits: 50
-};
-
-let userData = credits[message.author.id];
-let m = userData.credits;
-
-fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
-    if (err) console.error(err);
-  });
-  credits[message.author.id] = {
-      credits: m + 0.5,
-  }
-
-    if(message.content.startsWith(prefix + "credits")) {
-message.channel.send(**${message.author.username}, your 💳 balance is \`${userData.credits}``.);
-}
-})
 
 client.login(process.env.BOT_TOKEN);
