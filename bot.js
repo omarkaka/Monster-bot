@@ -313,6 +313,8 @@ client.on('message', message => {
 
  ❖ !!color = يعطي لون لازم تكتب رقم لون
 
+ ❖ !!clear = يمسح شات
+
  ❖ !!bc = يسوي برودكاست
 ╔[❖════════════❖]╗
             General  Commands
