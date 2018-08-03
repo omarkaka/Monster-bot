@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '§'
+const prefix = '!!'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -29,7 +29,7 @@ client.user.setGame(`§help|Monster Bot|2018`,"http://twitch.tv/S-F")
 });
 
 client.on('message', message => {
-    var prefix = "§"
+    var prefix = "!!"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -67,7 +67,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 
-    if (message.content === "§mutechannel") {
+    if (message.content === "!!mutechannel") {
                         if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -79,7 +79,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' لي
            });
              }
 //™¦༺♚ƙἶղց|MaS♚༺¦™#7105
-if (message.content === "§unmutechannel") {
+if (message.content === "!!unmutechannel") {
     if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
@@ -96,7 +96,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 });
 
 client.on('message', message => {
-    if (message.content.startsWith("§inv")) {
+    if (message.content.startsWith("!!invite")) {
  
   message.channel.createInvite({
         thing: true,
@@ -146,7 +146,7 @@ if (message.content.startsWith(prefix+"cv")) {
 
 client.on('message', message => {
   if (true) {
-if (message.content === '§invite') {
+if (message.content === '!!inv') {
       message.author.send('  https://discordapp.com/api/oauth2/authorize?client_id=474240032299941918&permissions=0&scope=bot  |  تفضل ربط البوت     ').catch(e => console.log(e.stack));
  
     }
@@ -176,7 +176,7 @@ client.on('message', function(message) {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith("§avatar")) {
+    if (message.content.startsWith("!!avatar")) {
         var mentionned = message.mentions.users.first();
     var x5bzm;
       if(mentionned){
@@ -212,7 +212,7 @@ client.on('message', function(msg) {
   });
 
  client.on('message', message => {
-    var prefix = "§"
+    var prefix = "!!"
 var args = message.content.split(" ").slice(1);    
 if(message.content.startsWith(prefix + 'id')) {
 var year = message.author.createdAt.getFullYear()
@@ -282,43 +282,43 @@ client.on('message', message => {
 ║║║║║║╚═╝║║─║║║╚═╝║─║║─║╚══╣║║╚╗   ║╚═╝║╚═╝║─║║
 ╚╝╚╝╚╩═══╩╝─╚═╩═══╝─╚╝─╚═══╩╝╚═╝   ╚═══╩═══╝─╚╝━╯
 ╔[❖════════════❖]╗
-             Prefix = ' § '
+             Prefix = ' !! '
 ╚[❖════════════❖]╝
 
 ╔[❖════════════❖]╗
              Admin Commands
 ╚[❖════════════❖]╝
 
- ❖ §kick = يحظر شخص من سيرفر
+ ❖ !!kick = يحظر شخص من سيرفر
 
- ❖ §mutechannel = يقفل روم الي تبيه لازم تكون في روم الي تبي تقفله
+ ❖ !!mutechannel = يقفل روم الي تبيه لازم تكون في روم الي تبي تقفله
  
- ❖ §unmutechannel = تم فتح روم الي تبيه لازم تكون في روم الي تبي تفتحه
+ ❖ !!unmutechannel = تم فتح روم الي تبيه لازم تكون في روم الي تبي تفتحه
 
- ❖ §inv = يعطيك رابط حق سيرفر لازم تكون داخل سيرفر و بوت يكون فيه
+ ❖ !!inv = يعطيك رابط حق سيرفر لازم تكون داخل سيرفر و بوت يكون فيه
 
- ❖ §ct = يسوي روم كتابي جديد
+ ❖ !!ct = يسوي روم كتابي جديد
 
- ❖ §cv = يسوي روم صوتي جديد
+ ❖ !!cv = يسوي روم صوتي جديد
   
 
 ╔[❖════════════❖]╗
             General  Commands
 ╚[❖════════════❖]╝
 
-❖ *roll <number> ➾ role 
+❖ !!roll <number> ➾ role 
 
-❖ §invite = رابط حق بوت
+❖ !!invite = رابط حق بوت
 
-❖ §ping = يعرض لك سرعه اتصالك
+❖ !!ping = يعرض لك سرعه اتصالك
 
-❖ §avatar = يعرض لك صورتك
+❖ !!avatar = يعرض لك صورتك
 
-❖ §server = يعرض لك معلومات سيرفر
+❖ !!server = يعرض لك معلومات سيرفر
 
-❖ §id = يعرض لك معلوماتك شخصية
+❖ !!id = يعرض لك معلوماتك شخصية
 
-
+❖ !!report = (reportيبلغ على شخص اذا سبك ( لازم تسوي روم باسم 
 
 ╔[❖════════════❖]╗
                     *** ذي اوامر بدائية انشاله تعجبكم انشاله راح نطور بوت اكثر بس ذا بدعمكم ***
