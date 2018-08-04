@@ -557,4 +557,23 @@ function timeCon(time) {
     seconds = seconds > 9 ? seconds : '0' + seconds
     return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
 }
+
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('id', '475373758408818688').setName("ا");
+client.channels.find('id', '475373758408818688').setName("ال");
+client.channels.find('id', '475373758408818688').setName("الش");
+client.channels.find('id', '475373758408818688').setName("الشا");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', '475373758408818688').setName("الشات");
+client.channels.find('id', 'ا475373758408818688').setName("الشات");
+  }, 3000);
+});
 client.login(process.env.BOT_TOKEN);
