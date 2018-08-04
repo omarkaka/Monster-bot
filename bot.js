@@ -522,4 +522,39 @@ client.on('message',async message => {
 
      
 });
+
+client.on('message', message => {
+    if (message.content.startsWith("!!info")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('``INFO Sniper-Bot`` ')
+            .addField('``Uptime``', [timeCon(process.uptime())], true)
+            .addField('``Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``ID``' , `[ ${client.user.id} ]` , true)
+                  .addField('``Prefix``' , `[ !! ]` , true)
+                  .addField('``Language``' , `[ Java Script ]` , true)
+                  .addField('``Founder ``' , ` [ Mr_OmarDZ ♪√™#8351 ] ` , true)
+    })
+}
+});
+
+function timeCon(time) {
+    let days = Math.floor(time % 31536000 / 86400)
+    let hours = Math.floor(time % 31536000 % 86400 / 3600)
+    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+    days = days > 9 ? days : '0' + days
+    hours = hours > 9 ? hours : '0' + hours
+    minutes = minutes > 9 ? minutes : '0' + minutes
+    seconds = seconds > 9 ? seconds : '0' + seconds
+    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+}
 client.login(process.env.BOT_TOKEN);
