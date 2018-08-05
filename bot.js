@@ -332,8 +332,6 @@ client.on('message', message => {
 
 ❖ !!id = يعرض لك معلوماتك شخصية
 
-❖ !!report = (reportsيبلغ على شخص اذا سبك ( لازم تسوي روم باسم 
-
 ╔[❖════════════❖]╗
                     *** ذي اوامر بدائية انشاله تعجبكم انشاله راح نطور بوت اكثر بس ذا بدعمكم ***
 ╚[❖════════════❖]╝
@@ -365,7 +363,7 @@ client.on('message', message =>{
         .addField("- Report Time :", message.createdAt.toLocaleString(),true)
         .addField("- Reason :", reason);
     
-        let reportschannel = message.guild.channels.find(`name`, "reports");
+        let reportschannel = message.guild.channels.find(`name`, "⫸【『تبيليغ』】⫷");
         if(!reportschannel) return message.channel.send("You should to make `reports` channel.");
     
     
