@@ -4,7 +4,7 @@ const prefix = '!!'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`!!help|Monster Bot|2018`,"http://twitch.tv/S-F")
+client.user.setGame(`!!help|!!inv|2018`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -587,4 +587,20 @@ var title = args[1]
           }
 });
 
+
+client.on("message", async message => {
+           let args = message.content.split(' ').slice(1)
+    const fs = require('fs-extra');
+  let newautorole = JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
+if(message.content.startsWith(prefix + "setautorole")){
+ if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")){return message.reply('**\`ADMINISTRATOR\`لا توجد لديك رتبة`**').catch(console.error);
+    } else {
+     if(!args.join(' ')) return message.channel.send("** اكتب اسم الرتبه**")
+     newautorole[message.guild.id] = {"autorole": args.join(" ")};
+     message.channel.send("لقد تم تفعيل اوتو رول`"+ args.join(" ") + "`👌");
+     fs.writeFile("./autorole.json", JSON.stringify(newautorole), (err) => {if (err) console.error(err);});
+   }
+}
+
+   });
   client.login(process.env.BOT_TOKEN);
