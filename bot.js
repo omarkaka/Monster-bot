@@ -556,7 +556,7 @@ function timeCon(time) {
     return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
 }
 
-bot.on("message", async message => {
+client.on("message", async message => {
            let args = message.content.split(' ').slice(1);
     if(message.content.startsWith(prefix + 'giveaway')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
